@@ -4,11 +4,11 @@ import com.rish889.rishSpringBoot3._Java24Maven.employee.service.dto.EmployeeDto
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/employees")
+@RequestMapping("/api/employee-service/v1/employees")
 public class EmployeeController {
 
     @GetMapping("/{id}")
-    public EmployeeDto getEmployee(@PathVariable Long id) {
+    public EmployeeDto getEmployee(@PathVariable String id) {
         // Logic to retrieve employee by ID (e.g., from a database)
         return new EmployeeDto(id, "John Doe");
     }
