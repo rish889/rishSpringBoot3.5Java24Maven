@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
 public class EmployeeController {
 
     @GetMapping(ApiPaths.EMPLOYEE_BY_ID)
-    public @ResponseBody ResponseEntity<EmployeeDto> getEmployee(@PathVariable String id) {
+    public @ResponseBody ResponseEntity<EmployeeDto> fetchEmployee(@PathVariable String id) {
         log.info("getEmployee(). id : {}", id);
         return ResponseEntity.ok(new EmployeeDto(id, "John Doe"));
     }
 
     @PostMapping(ApiPaths.EMPLOYEES)
-    public EmployeeDto createEmployee(@Valid @RequestBody EmployeeDto employee) {
+    public EmployeeDto saveEmployee(@Valid @RequestBody EmployeeDto employee) {
         return employee;
     }
 }
