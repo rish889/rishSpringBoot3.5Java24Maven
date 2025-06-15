@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 public class EmployeeController {
 
     @GetMapping(ApiPaths.EMPLOYEE_BY_ID)
-    public @ResponseBody ResponseEntity<EmployeeDto> fetchEmployee(@PathVariable String id) {
-        log.info("getEmployee(). id : {}", id);
-        return ResponseEntity.ok(new EmployeeDto(id, "John Doe"));
+    public @ResponseBody ResponseEntity<EmployeeDto> fetchEmployee(@PathVariable String employeeId) {
+        log.info("getEmployee(). employeeId : {}", employeeId);
+        return ResponseEntity.ok(new EmployeeDto(employeeId, "John Doe"));
     }
 
     @PostMapping(ApiPaths.EMPLOYEES)

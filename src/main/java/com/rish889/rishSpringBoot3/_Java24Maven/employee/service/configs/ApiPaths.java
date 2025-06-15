@@ -4,5 +4,5 @@ public class ApiPaths {
     public static final String API_V1 = "/api/employee-service/v1";
     public static final String HEALTH_CHECK = API_V1 + "/health";
     public static final String EMPLOYEES = API_V1 + "/employees";
-    public static final String EMPLOYEE_BY_ID = EMPLOYEES + "/{userId}";
+    public static final String EMPLOYEE_BY_ID = EMPLOYEES + "/{employeeId}";
 }
