@@ -1,6 +1,7 @@
 package com.rish889.rishSpringBoot3._Java24Maven.employee.service.controller;
 
 import com.rish889.rishSpringBoot3._Java24Maven.employee.service.dto.EmployeeDto;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -8,14 +9,12 @@ import org.springframework.web.bind.annotation.*;
 public class EmployeeController {
 
     @GetMapping("/{id}")
-    public EmployeeDto getEmployee(@PathVariable String id) {
-        // Logic to retrieve employee by ID (e.g., from a database)
-        return new EmployeeDto(id, "John Doe");
+    public @ResponseBody ResponseEntity<EmployeeDto> getEmployee(@PathVariable String id) {
+        return ResponseEntity.ok(new EmployeeDto(id, "John Doe"));
     }
 
     @PostMapping
     public EmployeeDto createEmployee(@RequestBody EmployeeDto employee) {
-        // Logic to create a new employee (e.g., save to database)
         return employee;
     }
 }
