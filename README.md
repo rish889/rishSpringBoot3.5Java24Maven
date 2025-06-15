@@ -1,4 +1,8 @@
 # rishSpringBoot3.5Java24Maven
-https://github.com/rish889/rishFeb2024/tree/main
-https://github.com/rish889/rishSpringShop
-https://www.baeldung.com/spring-boot-clean-architecture
+* https://github.com/rish889/rishFeb2024/tree/main
+* https://github.com/rish889/rishSpringShop
+* https://www.baeldung.com/spring-boot-clean-architecture
+* http://localhost:8080/h2-console
+  * https://www.baeldung.com/spring-boot-h2-database
+  * user : sa 
+  * password : password
