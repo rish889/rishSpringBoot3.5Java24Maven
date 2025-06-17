@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "employee")
-public class EmployeeEntity {
+public class EmployeeEntity extends BaseEntity {
     @Id
     @Column(name = "employee_id")
     private String employeeId;
