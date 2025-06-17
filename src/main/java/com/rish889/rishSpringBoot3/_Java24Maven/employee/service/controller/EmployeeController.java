@@ -19,9 +19,21 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    @GetMapping(ApiPaths.EMPLOYEES)
+    public @ResponseBody ResponseEntity<EmployeeResponseDto> fetchAllEmployees() {
+        log.debug("fetchAllEmployees()");
+        Employee employee = employeeService.fetchEmployeeById("employeeId");
+        return ResponseEntity.ok(EmployeeResponseDto.builder()
+                .employeeId(employee.getEmployeeId())
+                .firstName(employee.getFirstName())
+                .lastName(employee.getLastName())
+                .email(employee.getEmail())
+                .build());
+    }
+
     @GetMapping(ApiPaths.EMPLOYEE_BY_ID)
     public @ResponseBody ResponseEntity<EmployeeResponseDto> fetchEmployee(@PathVariable String employeeId) {
-        log.debug("getEmployee(). employeeId : {}", employeeId);
+        log.debug("fetchEmployee(). employeeId : {}", employeeId);
         Employee employee = employeeService.fetchEmployeeById(employeeId);
         return ResponseEntity.ok(EmployeeResponseDto.builder()
                 .employeeId(employee.getEmployeeId())
