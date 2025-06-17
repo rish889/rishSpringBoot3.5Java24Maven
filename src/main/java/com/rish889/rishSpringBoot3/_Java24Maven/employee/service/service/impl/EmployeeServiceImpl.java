@@ -25,6 +25,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void saveEmployee(Employee employee) {
+        if (employeeDsGateway.employeeExistsByEmail(employee.getEmail())) {
+            throw new BadRequestException("email_already_registered", "Email already registered : " + employee.getEmail());
+        }
         employeeDsGateway.saveEmployee(employee);
     }
 }

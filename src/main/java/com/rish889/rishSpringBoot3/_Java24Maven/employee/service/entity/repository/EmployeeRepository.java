@@ -4,4 +4,5 @@ import com.rish889.rishSpringBoot3._Java24Maven.employee.service.entity.Employee
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EmployeeRepository extends JpaRepository<EmployeeEntity, String> {
+    boolean existsByEmail(String email);
 }
