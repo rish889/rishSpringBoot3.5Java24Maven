@@ -20,6 +20,8 @@ public class EmployeeDsGatewayImpl implements EmployeeDsGateway {
         return employeeEntityOptional.map(employeeEntity -> Employee.builder()
                 .employeeId(employeeEntity.getEmployeeId())
                 .firstName(employeeEntity.getFirstName())
+                .lastName(employeeEntity.getLastName())
+                .email(employeeEntity.getEmail())
                 .build());
     }
 
@@ -28,6 +30,8 @@ public class EmployeeDsGatewayImpl implements EmployeeDsGateway {
         EmployeeEntity employeeEntity = EmployeeEntity.builder()
                 .employeeId(employee.getEmployeeId())
                 .firstName(employee.getFirstName())
+                .lastName(employee.getLastName())
+                .email(employee.getEmail())
                 .build();
         employeeRepository.save(employeeEntity);
     }

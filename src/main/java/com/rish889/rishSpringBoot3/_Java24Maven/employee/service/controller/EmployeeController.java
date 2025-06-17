@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @Slf4j
 public class EmployeeController {
@@ -33,6 +35,7 @@ public class EmployeeController {
     public void saveEmployee(@RequestBody EmployeeRequestDto employeeRequestDto) {
         log.debug("saveEmployee(). employeeRequestDto : {}", employeeRequestDto);
         employeeService.saveEmployee(Employee.builder()
+                .employeeId(UUID.randomUUID().toString())
                 .firstName(employeeRequestDto.getFirstName())
                 .lastName(employeeRequestDto.getLastName())
                 .email(employeeRequestDto.getEmail())
