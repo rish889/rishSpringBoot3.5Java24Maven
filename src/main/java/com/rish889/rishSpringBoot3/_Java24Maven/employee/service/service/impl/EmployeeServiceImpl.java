@@ -7,12 +7,18 @@ import com.rish889.rishSpringBoot3._Java24Maven.exception.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeDsGateway employeeDsGateway;
+
+    @Override
+    public List<Employee> fetchAllEmployees() {
+        return employeeDsGateway.fetchAllEmployees();
+    }
 
     @Override
     public Employee fetchEmployeeById(String employeeId) {
