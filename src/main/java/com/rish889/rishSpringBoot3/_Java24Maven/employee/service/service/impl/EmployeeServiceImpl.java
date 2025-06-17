@@ -6,6 +6,7 @@ import com.rish889.rishSpringBoot3._Java24Maven.employee.service.service.Employe
 import com.rish889.rishSpringBoot3._Java24Maven.exception.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional
     public void saveEmployee(Employee employee) {
         if (employeeDsGateway.employeeExistsByEmail(employee.getEmail())) {
             throw new BadRequestException("email_already_registered", "Email already registered : " + employee.getEmail());
