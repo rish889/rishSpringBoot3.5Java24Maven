@@ -10,9 +10,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class EmployeeDto {
+public class EmployeeResponseDto {
     @JsonProperty("employee_id")
     private String employeeId;
+
     @JsonProperty("first_name")
     private String firstName;
+
+    @JsonProperty("last_name")
+    private String lastName;
+
+    private String email;
 }
