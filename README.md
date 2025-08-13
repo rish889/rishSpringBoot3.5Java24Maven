@@ -10,11 +10,24 @@
 * password : password
 
 # Transactions
+* ReadUncommitted
+  * Can read uncommitted changes made by other transactions, leading to dirty reads.
+  * Cannot update row if another transaction has updated it but not committed.
+* ReadCommitted
+  * Can only read changes made by other transactions once they are committed.
+  * This avoids dirty reads but allows non-repeatable reads and phantom reads.
+  * Cannot read row if another transaction has updated it but not committed.
+* RepeatableRead
+  * Ensures that if a transaction reads a row, any subsequent reads will return the same data. 
+  * However, phantom reads can still occur.
+  * Another transaction cannot update the row.
+* Serializable
+  * Transactions are executed sequentially, ensuring no anomalies (dirty reads, non-repeatable reads, or phantom reads).
+  * However, this can lead to performance bottlenecks.
+  * Typically, locks the whole table.
+* Snapshot
+  * Same guarantees as serializable but more performant.
+* [Understanding Database Isolation Levels](https://medium.com/nerd-for-tech/understanding-database-isolation-levels-c4ebcd55c6b9)
 * [Transaction Propagation and Isolation in Spring @Transactional](https://www.baeldung.com/spring-transactional-propagation-isolation)
 * [Understanding Isolation Levels in Transactions with Java Spring](https://medium.com/@a.r.m.monesan_9577/understanding-isolation-levels-in-transactions-with-java-spring-c414b43b6df1)
 * [Transactions with Spring and JPA](https://www.baeldung.com/transaction-configuration-with-jpa-and-spring)
-* ReadUncommitted : Cannot update row if another transaction has updated it but not committed.
-* ReadCommitted : Cannot read row if another transaction has updated it but not committed.
-* RepeatableRead : Another transaction cannot update the row.
-* Serializable : Typically locks the whole table.
-* Snapshot : Same guarantees as serializable but more performant.
