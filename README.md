@@ -23,7 +23,7 @@
     * This avoids dirty reads but allows non-repeatable reads and phantom reads.
     * Cannot read row if another transaction has updated it but not committed.
   * RepeatableRead
-    * Ensures that if a transaction reads a row, any subsequent reads will return the same data. 
+    * Ensures that if a transaction reads a row, any subsequent reads will return the same data.
     * However, phantom reads can still occur.
     * Another transaction cannot update the row.
   * Serializable
